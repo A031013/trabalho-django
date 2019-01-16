@@ -1,0 +1,21 @@
+{% extends 'Reparacoes/base.html' %}
+
+{% block content %}
+	<h2>Entrada de Encomenda</h2>
+	<form method="post" novalidate>
+	  {% csrf_token %}
+
+	  {% for hidden_field in form.hidden_fields %}
+		{{ hidden_field }}
+	  {% endfor %}
+
+	  {% for field in form.visible_fields %}
+		<div class="form-group">
+		  {{ field.label_tag }}
+		  {{ field }}
+		</div>
+	  {% endfor %}
+
+	  <button type="submit" class="btn btn-primary">Submit</button>
+	</form>
+{% endblock %}

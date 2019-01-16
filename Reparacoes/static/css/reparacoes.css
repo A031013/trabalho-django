@@ -1,0 +1,146 @@
+.page-header{
+	background-color: #282726;
+	padding: 8px;
+	margin-top:-2%;
+}
+.page-header h1{
+	padding-top: 8px;
+	color: #6A8A82;
+	font-family: "Comic Sans MS", cursive, sans-serif;
+}
+
+.tabela th{
+	width: 20px;
+	text-align: center;
+	border: 1px solid black;
+	padding: 5px;
+	font-weight: bold;
+}
+.tabela td{
+	width: 20px;
+	text-align: center;
+	border: 1px solid black;
+	padding: 5px;
+}
+.tabela #th_left{
+	width: 30px;
+	text-align: center;
+	border: 1px solid black;
+	padding: 5px;
+}
+.tabela #left{
+	width: 30px;
+	text-align: left;
+	border: 1px solid black;
+	padding: 5px;
+}
+#tabela_reparacao #arranjado{
+	color: green;
+	font-weight: bold;
+}
+#tabela_reparacao #analise{
+	color: red;
+	font-weight: bold;
+}
+#tabela_stock #th_left{
+	width: 20px;
+	text-align: center;
+	border: 1px solid black;
+	padding: 5px;
+}
+#tabela_stock #left{
+	width: 20px;
+	text-align: left;
+	border: 1px solid black;
+	padding: 5px;
+}
+#tabela_stock #th_qtd{
+	width: 10px;
+	text-align: center;
+	border: 1px solid black;
+	padding: 5px;
+}
+#tabela_stock #qtd{
+	width: 10px;
+	text-align: center;
+	border: 1px solid black;
+	padding: 5px;
+}
+
+#tabela_encomenda th{
+	width: 20px;
+	text-align: center;
+	border: 1px solid black;
+	padding: 5px;
+}
+#tabela_encomenda td{
+	width: 20px;
+	text-align: center;
+	border: 1px solid black;
+	padding: 5px;
+}
+#tabela_encomenda #entregue{
+	color: green;
+	font-weight: bold;
+}
+#tabela_encomenda #aguardar{
+	color: red;
+	font-weight: bold;
+}
+#tabela_encomenda #numero{
+	width: 2%;
+}
+#tabela_encomenda #numero_td{
+	width: 2%;
+}
+#tabela_encomenda #fornecedor_th{
+	width: 10px;
+	text-align: center;
+	border: 1px solid black;
+	padding: 5px;
+}
+#tabela_encomenda #fornecedor_td{
+	width: 10px;
+	text-align: center;
+	border: 1px solid black;
+	padding: 5px;
+}
+#tabela_fornecedor{
+	width: 600px;
+}
+#tabela_fornecedor #th_left{
+	width: 40px;
+	text-align: center;
+	border: 1px solid black;
+	padding: 5px;
+}
+#tabela_fornecedor #left{
+	width: 40px;
+	text-align: left;
+	border: 1px solid black;
+	padding: 5px;
+}
+#tabela_fornecedor #morada_th{
+	width: 300px;
+	text-align: center;
+	border: 1px solid black;
+	padding: 5px;
+}
+#tabela_fornecedor #morada{
+	width: 300px;
+	text-align: left;
+	border: 1px solid black;
+	padding: 5px;
+}
+#tabela_fornecedor th{
+	width: 15px;
+	text-align: center;
+	border: 1px solid black;
+	padding: 5px;
+}
+#tabela_fornecedor td{
+	width: 15px;
+	text-align: center;
+	border: 1px solid black;
+	padding: 5px;
+}

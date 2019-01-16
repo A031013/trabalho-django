@@ -1,0 +1,51 @@
+{% extends 'Reparacoes/base.html' %}
+
+{% block content %}
+	<h2>Lista de Reparações</h2>
+	<h4><a href="{% url 'stock' %}">Stock da Loja</a></h4>
+	<div class="tabela">
+		<table id="tabela_reparacao" class="tabela" style="width:130%">
+		  <tr>
+			<th id="th_left">Equipamento</th>
+			<th id="th_left">Nº Serie</th>
+			<th>Estado</th> 
+			<th>Aguarda Encomenda</th>
+			<th>Preço</th>
+			<th>Acções</th>
+		  </tr>
+		  {% for reparacao in reparacoes %}
+		  <tr>
+			<td id="left" >{{ reparacao.equipamento }}</td>
+			<td id="left" >{{ reparacao.numero_serie }}</td>
+			{% if reparacao.estado == "Em Analise" %}
+				<td id="analise">{{ reparacao.estado }}</td>
+			{% else %}
+				<td id="arranjado">{{ reparacao.estado }}</td>
+			{% endif %}
+			<td>
+			{% if reparacao.aguarda_encomenda == False %}
+				Não
+			{% else %}
+				Sim
+			{% endif %}
+			</td>
+			<td>
+			
+			{% if reparacao.preco == None %}
+				Não definido
+			{% else %}
+				{{ reparacao.preco|floatformat:2 }}&euro;
+			{% endif %}
+			</td>
+			{% if reparacao.estado == "Em Analise" %}
+				<td><a href="{% url 'reparar' pk=reparacao.pk %}"><span class="glyphicon glyphicon-wrench"></span></a></td>
+			{% else %}
+				<td>Sem acções</td>
+			{% endif %}
+		  </tr>
+		  {% endfor %}
+		</table>
+	</div>
+	
+	
+{% endblock %}

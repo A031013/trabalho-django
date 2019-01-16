@@ -1,0 +1,25 @@
+{% extends 'Reparacoes/base.html' %}
+
+{% block content %}
+	<h2>Lista de Fornecedores</h2>
+	<a href="{% url 'encomenda_lista' %}"><span class="glyphicon glyphicon-arrow-left"></span></a>
+	<h4><a href="{% url 'fornecedor_novo' %}">Novo Fornecedor</a></h4>
+	<div class="tabela">
+		<table id="tabela_fornecedor" class="tabela" style="">
+		  <tr>
+			<th id="th_left">Nome</th>
+			<th>Localidade</th>
+			<th id="morada_th">Morada</th>
+		  </tr>
+		  {% for fornecedor in fornecedores %}
+			  <tr>
+				<td id="left">{{ fornecedor.nome }}</td>
+				<td>{{ fornecedor.localidade }}</td>
+				<td id="morada">{{ fornecedor.morada }}</td>
+			  </tr>
+		  {% endfor %}
+		</table>
+	</div>
+	
+	
+{% endblock %}

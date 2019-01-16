@@ -1,0 +1,38 @@
+{% extends 'Reparacoes/base.html' %}
+
+{% block content %}
+	<h2>Análise/Reparação de Equipamento</h2>
+	<div style="border:1px solid black;margin-bottom: 15px;">
+		<p style="padding-top:4px;padding-left:4px;"><b>Equipamento:</b>{{ reparacao.equipamento }}</p>
+		<p style="padding-top:4px;padding-left:4px;"><b>Nº Serie:</b>{{ reparacao.numero_serie }}</p>
+		<p style="padding-top:4px;padding-left:4px;"><b>Avaria:</b>{{ reparacao.avaria|linebreaksbr }}</p>
+		<p style="padding-top:4px;padding-left:4px;"><b>Arranjo:</b>{{ reparacao.arranjo|linebreaksbr }}</p>
+		{% if reparacao.preco == none %}
+			<p style="padding-top:4px;padding-left:4px;"><b>Preço:</b>Não definido</p>
+		{% else %}
+			<p style="padding-top:4px;padding-left:4px;"><b>Preço:</b>{{ reparacao.preco }}&euro;</p>
+		{% endif %}
+		{% if reparacao.aguarda_encomenda == False %}
+			<p style="padding-top:4px;padding-left:4px;"><b>Aguarda Encomenda:</b>Não</p>
+		{% else %}
+			<p style="padding-top:4px;padding-left:4px;"><b>Aguarda Encomenda:</b>Sim</p>
+		{% endif %}
+		<p style="padding-top:4px;padding-left:4px;"><b>Estado:</b>{{ reparacao.estado }}</p>	
+	</div>	
+	<form method="post" novalidate>
+	  {% csrf_token %}
+
+	  {% for hidden_field in form.hidden_fields %}
+		{{ hidden_field }}
+	  {% endfor %}
+
+	  {% for field in form.visible_fields %}
+		<div class="form-group">
+		  {{ field.label_tag }}
+		  {{ field }}
+		</div>
+	  {% endfor %}
+
+	  <button type="submit" class="btn btn-primary">Submit</button>
+	</form>
+{% endblock %}

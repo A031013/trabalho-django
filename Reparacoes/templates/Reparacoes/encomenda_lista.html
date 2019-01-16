@@ -1,0 +1,44 @@
+{% extends 'Reparacoes/base.html' %}
+
+{% block content %}
+	<h2>Lista de Encomendas da Loja</h2>
+	<a href="{% url 'stock' %}"><span class="glyphicon glyphicon-arrow-left"></span></a>
+	<h4><a href="{% url 'fornecedor_lista' %}">Fornecedores</a></h4>
+	<h4><a href="{% url 'encomendar' %}">Nova Encomenda</a></h4>
+	<div class="tabela">
+		<table id="tabela_encomenda" class="tabela" style="width:150%">
+		  <tr>
+			<th id="numero">Numero</th>
+			<th id="th_left">Nome</th>
+			<th id="fornecedor_th">Fornecedor</th>
+			<th>Quantidade</th>
+			<th>Estado</th>
+			<th>Data</th>
+			<th>Acções</th>
+		  </tr>
+		  {% for encomenda in encomendas %}
+		  {{ encomenda.nome }}
+			  <tr>
+				<td id="numero_td" style="width: 10px">{{ encomenda.id }}</td>
+				<td id="left">{{ encomenda.nome_peca }}</td> 
+				<td id="fornecedor_td">{{ encomenda.fornecedor }}</td>
+				<td>{{ encomenda.quantidade }}</td>
+				{% if encomenda.entregue == False %}
+					<td id="aguardar">Aguardar</td>
+				{% else %}	
+					<td id="entregue">Entregue</td>
+				{% endif %}
+				<td>{{ encomenda.data }}</td>
+				{% if encomenda.entregue == False %}
+					<td><a href="{% url 'encomenda_entrada' pk=encomenda.pk %}"><span class="glyphicon glyphicon-ok"></span></a></td>
+				{% else %}
+					<td>Não existem acções</td>
+				{% endif %}	
+			  </tr>
+			  {{ encomenda.nome }}
+		  {% endfor %}
+		</table>
+	</div>
+	
+	
+{% endblock %}

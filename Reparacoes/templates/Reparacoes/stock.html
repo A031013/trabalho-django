@@ -1,0 +1,25 @@
+{% extends 'Reparacoes/base.html' %}
+
+{% block content %}
+	<h2>Stock da Loja</h2>
+	<a href="{% url 'reparacao_lista' %}"><span class="glyphicon glyphicon-arrow-left"></span></a>
+	<h4><a href="{% url 'encomenda_lista' %}">Encomendas</a></h4>
+	<h4><a href="{% url 'peca_lista' %}">Lista de Peças</a></h4>
+	<h4><a href="{% url 'stock_retirar' %}">Retirar unidade/s do stock</a></h4>
+	<div class="tabela">
+		<table id="tabela_stock" class="tabela" style="width:80%">
+		  <tr>
+			<th id="th_left">Nome</th>
+			<th id="th_qtd">Quantidade</th>
+		  </tr>
+		  {% for st in stock %}
+			  <tr>
+				<td id="left">{{ st.nome_peca }}</td>
+				<td id="qtd">{{ st.quantidade }}</td> 
+			  </tr>
+		  {% endfor %}
+		</table>
+	</div>
+	
+	
+{% endblock %}

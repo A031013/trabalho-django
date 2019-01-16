@@ -1,0 +1,25 @@
+{% extends 'Reparacoes/base.html' %}
+
+{% block content %}
+	<h2>Peças do Stock da Loja</h2>
+	<a href="{% url 'stock' %}"><span class="glyphicon glyphicon-arrow-left"></span></a>
+	<h4><a href="{% url 'peca_nova' %}">Nova Peça</a></h4>
+	<div class="tabela">
+		<table style="width:100%">
+		  <tr>
+			<th id="th_left">Nome</th>
+			<th>Marca</th>
+			<th>Preço</th>
+		  </tr>
+		  {% for peca in pecas %}
+			  <tr>
+				<td id="left">{{ peca.nome }}</td>
+				<td>{{ peca.marca }}</td> 
+				<td>{{ peca.preco|floatformat:2 }}&euro;</td>
+			  </tr>
+		  {% endfor %}
+		</table>
+	</div>
+	
+	
+{% endblock %}
